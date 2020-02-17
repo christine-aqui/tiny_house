@@ -25,7 +25,7 @@ const mount = async (app: Application) => {
 		);
 	});
 
-	const listings = await db.listings.find({}).toArray(); // listings is type any[]
+	const listings = await db.listings.find({}).toArray();
 	console.log(listings);
 };
 

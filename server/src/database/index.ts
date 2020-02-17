@@ -1,4 +1,5 @@
 import { MongoClient } from 'mongodb';
+import { Database } from '../lib/types';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -8,7 +9,7 @@ const cluster = process.env.CLUSTER;
 
 const url = `mongodb+srv://${user}:${userPassword}@${cluster}.mongodb.net`;
 
-export const connectDatabase = async () => {
+export const connectDatabase = async (): Promise<Database> => {
 	const client = await MongoClient.connect(url, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true
