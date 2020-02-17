@@ -1,13 +1,8 @@
+require('dotenv').config();
 import { MongoClient } from 'mongodb';
 import { Database } from '../lib/types';
-import dotenv from 'dotenv';
-dotenv.config();
 
-const user = process.env.USER;
-const userPassword = process.env.USERPASSWORD;
-const cluster = process.env.CLUSTER;
-
-const url = `mongodb+srv://${user}:${userPassword}@${cluster}.mongodb.net`;
+const url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_USER_PASSWORD}@${process.env.DB_CLUSTER}.mongodb.net`;
 
 export const connectDatabase = async (): Promise<Database> => {
 	const client = await MongoClient.connect(url, {
