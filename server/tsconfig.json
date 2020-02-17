@@ -1,10 +1,27 @@
 {
-  "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
-    "rootDir": "./src",
-    "outDir": "./build",
-    "esModuleInterop": true,
-    "strict": true
-  }
+	"compilerOptions": {
+		"target": "es6",
+		"module": "commonjs",
+		"rootDir": "./src",
+		"outDir": "./build",
+		"esModuleInterop": true,
+		"strict": true
+	}
 }
+
+// esModuleInterop
+// Emit __importStar and __importDefault helpers for runtime babel ecosystem compatibility and enable --allowSyntheticDefaultImports for typesystem compatibility.
+
+// outDir
+// Redirect output structure to the directory.
+
+// rootDir
+// Specifies the root directory of input files. Only use to control the output directory structure with --outDir.
+
+// strict
+// Enable all strict type checking options.
+// Enabling --strict enables --noImplicitAny, --noImplicitThis, --alwaysStrict, --strictBindCallApply, --strictNullChecks, --strictFunctionTypes and --strictPropertyInitialization.
+
+// target
+// Specify ECMAScript target version:...
+// Note: "ESNext" targets latest supported ES proposed features.
