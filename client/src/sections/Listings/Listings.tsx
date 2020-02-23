@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { server } from '../../lib/api';
 import {
 	Listing,
@@ -40,10 +40,15 @@ interface Props {
 
 export const Listings = ({ title }: Props) => {
 	const [listings, setListings] = useState<Listing[] | null>(null);
+	// const [count]
+
+	useEffect(() => {
+		fetchListings(); // will fetch listings on mount
+	}, []);
 
 	const fetchListings = async () => {
 		const { data } = await server.fetch<ListingsData>({ query: LISTINGS });
-		console.log(data);
+		// console.log(data);
 		setListings(data.listings);
 	};
 
@@ -74,7 +79,6 @@ export const Listings = ({ title }: Props) => {
 		<div>
 			<h2>{title} </h2>
 			{listingsList}
-			<button onClick={fetchListings}>Query listings!</button>
 		</div>
 	);
 };
