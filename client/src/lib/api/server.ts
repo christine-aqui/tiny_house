@@ -1,9 +1,10 @@
-interface Body {
+interface Body<TVariables> {
 	query: string;
+	variables?: TVariables; // ? means its optionsal
 }
 
 export const server = {
-	fetch: async (body: Body) => {
+	fetch: async <TData = any, TVariables = any>(body: Body<TVariables>) => {
 		const res = await fetch('/api', {
 			method: 'POST',
 			headers: {
@@ -12,6 +13,12 @@ export const server = {
 			body: JSON.stringify(body)
 		});
 
-		return res.json();
+		return res.json() as Promise<{ data: TData }>; // (as) to type assert res.json()
 	}
 };
+
+/*
+https://www.typescriptlang.org/docs/handbook/generics.html
+
+
+*/
