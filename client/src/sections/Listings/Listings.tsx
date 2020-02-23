@@ -54,7 +54,7 @@ export const Listings = ({ title }: Props) => {
 				id: id
 			}
 		});
-		// setListings(data.listings)
+		fetchListings();
 	};
 
 	const listingsList = listings ? (
