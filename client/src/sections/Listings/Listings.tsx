@@ -71,6 +71,10 @@ export const Listings = ({ title }: Props) => {
 		return <h2>Loading...</h2>;
 	}
 
+	if (error) {
+		return <h2>Something went wrong - please try again later :(</h2>;
+	}
+
 	return (
 		<div>
 			<h2>{title} </h2>
